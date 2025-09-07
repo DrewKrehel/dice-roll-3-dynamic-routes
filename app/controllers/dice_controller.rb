@@ -37,6 +37,7 @@ class DiceController < ApplicationController
   end
 
   def roll_five_four
+    
     @rolls = []
 
     5.times do
@@ -46,4 +47,18 @@ class DiceController < ApplicationController
 
     render({ :template => "dice_templates/result_five_four" })
   end
+
+  def flex_roll
+    @num_dice = params.fetch("number").to_i
+    
+    @rolls = []
+
+    5.times do
+      dice = rand(1..4)
+      @rolls.push(dice)
+    end
+
+    render({ :template => "dice_templates/result_flexible" })
+  end
+
 end
