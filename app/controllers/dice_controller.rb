@@ -53,7 +53,7 @@ class DiceController < ApplicationController
     
     @rolls = []
 
-    5.times do
+    @num_dice.times do
       dice = rand(1..4)
       @rolls.push(dice)
     end
